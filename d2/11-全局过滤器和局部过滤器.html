@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        全局过滤器：在任何的vue实例中，都可以使用
+        局部过滤器：只能在当前的vue实例中使用
+
+        tips：将来学习组件，一个页面由一个个组件组成的，而组件也是vue实例
+     -->
+    <div id="app">
+        <h1>{{msg | global | demo}}</h1>
+        <!-- 过滤器串联 -->
+        <!-- msg经过global过滤器处理，结果再给demo过滤器处理，输出最后的结果 -->
+    </div>
+    <div id="app2">
+        <h1>{{msg | global | demo2}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.filter("global", function (value) {
+            return value + '_global'
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello vue'
+            },
+            filters: {
+                //过滤名：处理函数
+                demo: function (value) {
+                    return value + '_demo'
+                }
+            }
+        })
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                msg: 'hello vue2'
+            },
+            filters: {
+                demo2: function (value) {
+                    return value + '_demo2'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        需求：有时候后台会直接返回直接戳，我们要把时间戳转换成需要的日期格式
+     -->
+    <div id="app">
+        <h1>{{date1 | time}}</h1>
+    </div>
+    <script src="./moment.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.filter('time', function (value) {
+            return moment(value).format('YYYY-MM-DD HH:mm:ss')
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                date1: 1601348075835,
+                date2: 1201348075835
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

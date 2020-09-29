@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        如果一个结果，需要依赖data中的数据，但是要经过一些逻辑处理，才嗯那个得到想要的数据，可以使用计算属性
+         <h1>{{msg.split('').reverse().join('')}}</h1> 
+对于上面模板上写了大量的逻辑，会使得模板过重，不好维护
+对于太复杂的逻辑我们使用计算属性
+    -->
+    <!-- ===================================== -->
+    <!-- 
+        计算属性：
+          1）写在computed中==> computed中专门存放计算属性的
+          2）计算属性和data类似，都是用于提供属性的
+          3）计算属性写法上是一个函数，但实质是一个属性
+
+          计算属性是需要通过计算得到的属性，函数中就封装了计算的过程，真正属性的值，就是函数的返回值
+     -->
+
+    <div id="app">
+        <!-- <h1>{{msg.split('').reverse().join('')}}</h1> -->
+        {{ msg }}
+        {{reverse}}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello vue'
+            },
+            computed: {
+                reverse() {
+                    return this.msg.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

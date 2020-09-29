@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseFn() }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+        {{ reverseMsg }}
+    </div>
+    <!-- 
+        计算属性优点：
+            1.便于维护，将模板中复杂的逻辑封装到了计算属性中
+            2.计算属性有缓存，计算完成后，会把计算结果缓存起来
+              如果再次获取同一个计算属性，那么就不要重复计算，直接读缓存结果即可
+            3.依赖的值，如果发生变量，计算的属性会自动重新计算，并再次缓存
+     -->
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello vue'
+            },
+            methods: {
+                reverseFn() {
+                    console.log("methods")
+                    return this.msg.split('').reverse().join('')
+                }
+            },
+            computed: {
+                reverseMsg() {
+                    console.log("computed")
+                    return this.msg.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
