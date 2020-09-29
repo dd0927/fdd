@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        v-on作用： 用于注册事件
+        1.内联语句，将要执行的代码，直接写在""中，适用于简单的代码
+         语法 v-on:事件名= '要执行的代码'
+     -->
+    <div id="app">
+        <!-- 1.内联语句，将要执行的代码，直接写在""中，适用于简单的代码
+         语法 v-on:事件名= '要执行的代码' -->
+        <!--  <button v-on:click='isShow = !isShow'>控制h1的显示与隐藏</button> -->
+        <!-- <button @click='isShow = !isShow'></button> -->
+
+        <!-- <h1 v-show='isShow'>啦啦啦啦我不管</h1> -->
+
+
+        <!--
+            2.指定成methods中的函数  
+               v-on：事件名= 'methods中的函数名' 
+        -->
+        <!-- <button v-on:click='fn'>这是一个函数控制的显示与隐藏</button>
+        <h1 v-show='isShow'>这是一个函数控制的显示与隐藏</h1> -->
+
+        <!-- 
+            3.指定成methods中的函数，并且传递参数
+            v-on:事件名= 'methods中的函数(参数1,...)'
+         -->
+        <!-- <button v-on:click='fn1(100)'></button> -->
+
+
+        <!-- 
+            4.简写 @事件名=''
+        -->
+
+
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            },
+            methods: {
+                fn() {
+                    this.isShow = !this.isShow
+                    /*  isShow = !isShow //报错 */
+                },
+                fn1(num) {
+                    alert(num)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

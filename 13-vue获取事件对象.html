@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+       a标签点击会挑走，但是不希望他挑走，可以阻止默认行为
+       1.  e.preventDefault()  阻止默认行为
+       2. e.stopPropagation() 阻止冒泡
+    -->
+
+    <!-- ==================== -->
+
+    <!-- 
+        vue中获取事件对象
+        1.注册事件没有传参 @事件名='fn',直接通过形参来获取
+        2.注册事件传了参数 @事件名='fn(100, $event)',来获取e
+     -->
+
+    <!-- ===================== -->
+    <div id="app">
+        <a @click='fn' href="https://www.baidu.com/">未满十八岁禁止观看</a>
+
+        <a @click='fn2(100, $event)' href="https://www.baidu.com/">我这里面传了参数</a>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            //方法函数写在methods中
+            methods: {
+                fn(e) {
+                    e.preventDefault();
+                },
+                fn2(num, e) {
+                    e.preventDefault();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

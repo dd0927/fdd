@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if='fdd'>vip,你好，请登录</h1>
+        <h1 v-else>谢谢合作，请下次光临</h1>
+
+        <h1 v-if='age >= 80'>我已经八十了</h1>
+        <h1 v-else-if='age >= 60'>我已经六十了</h1>
+        <h1 v-else-if='age >= 20'>我已经二十了</h1>
+        <h1 v-else>我还小呢</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                fdd: true,
+                age: 80
+            }
+        })
+    </script>
+</body>
+
+</html>

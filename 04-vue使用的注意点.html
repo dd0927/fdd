@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="box1">
+            <h1>{{msg}}</h1>
+        </div>
+        <div id="box2">
+            <h1>{{msg}}</h1>
+        </div>
+    </div>
+    <!-- 
+        初学者学习vue的注意点：
+           1.Vue的构造函数，首字母大写
+           2.el不能指定成body和html，所以在外面要用一个大盒子包一下
+           3.到了vue：数据驱动，要更新视图，请操作数据
+     -->
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '嘿嘿'
+            }
+        })
+        //vue实例化的过程种，将data中的所有数据都会添加到vm实例上
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in stu" :key="item.id">姓名：{{item.name}},年龄：{{item.age}}, 爱好：{{item.hobby}}</li>
+        </ul>
+
+    </div>
+    <!-- 
+        如果是列表的渲染（使用v-for使用）,
+        vue推荐加上key属性，可以优化列表渲染的性能
+        // :key="唯一标识" ===> 一般是id
+     -->
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                stu: [{
+                    id: 1,
+                    name: 'zs',
+                    age: 20,
+                    hobby: '跳舞'
+                }, {
+                    id: 2,
+                    name: 'ls',
+                    age: 50,
+                    hobby: '唱歌'
+                }, {
+                    id: 3,
+                    name: 'ww',
+                    age: 80,
+                    hobby: '蹦迪'
+                }, {
+                    id: 4,
+                    name: 'zl',
+                    age: 99,
+                    hobby: '棺材'
+                }]
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>这是一个{{msg}}的网站</h2>
+        <h2 v-html='msg'>这是一个内容</h2>
+        <h2 v-text='msg'></h2>
+    </div>
+    <!-- 
+        v-text 原理：设置元素的innerText，不能识别变签（完全可以被插值表达式代替）
+
+        v-html 原理：设置元素的innerHTML，识别标签，在你需要解析标签的时候再使用
+     -->
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '<a href= "#">未满十八岁禁止点击观看</a>'
+            }
+        })
+    </script>
+</body>
+
+</html>

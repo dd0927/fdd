@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        插值表达式： 小胡子语法 {{}}
+        作用：将data中的数据渲染视图
+
+        语法：
+        {{msg}}
+        {{obj.hobby}}
+        {{vm.obj.age >= 20? '成年人': '小弟弟'}}
+     -->
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <h2>{{obj.hobby}}</h2>
+        <h3>{{ obj.name.toUpperCase() }}</h3>
+        <h4>{{ eng.toUpperCase() }}</h4>
+        <h5>{{ eng.toUpperCase() }}</h5>
+        <h6>{{obj.age}}</h6>
+        <h6>{{ obj.age >= 20? "成年" : "小弟弟"}}</h6>
+        <h1>{{info}}</h1>
+    </div>
+    <!-- 
+        注意点：
+            1.不是data中的变量，不要直接用，会报错
+               Property or method "info" is not defined
+            2.能使用表达式，但不能使用if for
+            3.不能在标签属性中使用
+     -->
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好',
+                eng: 'hello vue',
+                obj: {
+                    name: 'zs',
+                    age: 88,
+                    hobby: 'dance'
+                }
+            }
+        })
+        vm.obj.age = 15;
+    </script>
+</body>
+
+</html>

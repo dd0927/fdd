@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        v-if和v-show都是控制元素的显示隐藏
+
+        1. v-if = '布尔值'
+           true ： 显示
+           false： 隐藏
+           原理：动态创建并删除元素
+           使用场景： 不频繁切换的，要么显示，要么隐藏
+                     比如： vip用户不要广告
+        
+        2. v-show = '布尔值'
+           true ：显示
+           false：隐藏
+           原理：动态的控制css样式，控制 display:none
+           使用场景：给一个元素频繁切换显示与隐藏
+     -->
+    <div id="app">
+        <div v-if='flag'>我是if控制的内容</div>
+        <div v-show='flag'>我是show控制的内容</div>
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            }
+        })
+    </script>
+</body>
+
+</html>
