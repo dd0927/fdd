@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        /*  
+              axios简写形式
+         */
+        /* 
+               //     get 获取
+               //     post 添加
+               //     delete 删除
+               //     put 全部修改
+               //     patch 局部修改
+         */
+
+        //如果发送的请求非常简单可以写简写的形式
+
+        /* 
+            1. get 和 delete 类似
+                 axios.get(url).then(成功的函数)
+
+
+                 axios.get(url, {
+                     params: {....}
+                 }).then(成功的函数)
+            2. post put patch 类似
+                 axios.post(url, data).then(成功的函数)
+         */
+
+        //测试：
+        //  1.发送get请求，获取全部的数据
+        axios.get("http://localhost:3000/list").then(res => {
+            console.log(res.data)
+        })
+        //  2.发送get请求，完成搜索的功能
+        axios.get("http://localhost:3000/list", {
+            params: {
+                name_like: '车'
+            }
+        }).then(res => {
+            console.log(res.data)
+        })
+        //  3.发送post请求，完成添加功能
+        /* axios.post('http://localhost:3000/list', {
+            name: '过山车',
+            price: '5000'
+        }).then(res => {
+            console.log(res.data)
+        }) */
+
+        //删除请求
+        /* const id = 8;
+        axios.delete(`http://localhost:3000/list/${id}`).then(res => {
+            console.log('删除成功')
+            //console.log(res.data)
+        }) */
+    </script>
+</body>
+
+</html>

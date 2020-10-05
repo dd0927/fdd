@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1. $.axios 只是一个基于原生ajax封装的插件工具，在你发送请求ajax的时候引入即可
+
+        2. 使用步骤：
+           1）npm i axios
+           2）引包
+           3）使用，发送请求
+         
+           axios({
+               method: (请求方式)
+               url:(请求地址)
+               data: {参数对象}, 这个参数对下个会在请求体中进行提交  post/put/patch
+               param: {参数对象}, 这个参数会在地址栏中拼接提交 get/delete
+           }).then(成功的函数).catch(失败的函数)
+     -->
+    <script src="./vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        //get 获取
+        //post 添加
+        //delete 删除
+        //put 全部修改
+        //patch 局部修改
+
+
+        //1.发动get请求，获取全部的数据
+        /* axios({
+            method: 'get',
+            url: 'http://localhost:3000/list'
+        }).then((res) => {
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err)
+            alert('当前服务器繁忙')
+        }) */
+
+        //2.发送get请求，完成搜索数据
+        /* axios({
+            method: 'get',
+            url: 'http://localhost:3000/list?name_like=车',
+        }).then((res) => {
+            console.log(res.data)
+        }).catch((err) => {
+            console.log(err);
+        }) */
+
+        //3.get请求搜索数据可以直接在地址栏中拼接，也可以写在param中传递
+        /* axios({
+            method: 'get',
+            url: 'http://localhost:3000/list',
+            params: {
+                name_like: '车'
+            },
+        }).then(res => {
+            console.log(res.data)
+        }) */
+
+        //4.axios发送post请求 
+        //   ===============数据添加
+        //   ========put patch post 参数都在data中
+        //   =====json-server 要求请求的传输格式 json格式，axios默认的是请求body的传输格式，就是json的格式
+        /* axios({
+            method: 'post',
+            url: 'http://localhost:3000/list',
+            data: {
+                name: '棒棒糖',
+                price: 0.5,
+            }
+        }).then((res) => {
+            console.log(res.data)
+        }) */
+
+        //5.全部修改，两个属性都要改 put  
+        /* const id = 5;
+        axios.put(`http://localhost:3000/list/${id}`, {
+            name: '啦啦啦',
+            price: 100000
+        }).then(res => {
+            console.log(res.data)
+        }) */
+
+        //6.只修改一个属性  局部修改  patch
+        /* const id = 4;
+        axios.patch(`http://localhost:3000/list/${id}`, {
+            name: 'gogogo'
+        }).then(res => {
+            console.log(res.data);
+        }) */
+    </script>
+</body>
+
+</html>
